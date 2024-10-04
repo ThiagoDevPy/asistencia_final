@@ -68,22 +68,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <div class="panel-body table-responsive" id="listadoregistros">
             <div class="dataTables_wrapper" id="listadoregistros">
 
-              <div class="form-group col-lg3 col-md-3 col-sm-6 col-xs-12">
-                <label>Fecha Inicio</label>
-                <input type="date" class="form-control" name="fecha_inicio" id="fecha_inicio" value="<?php echo date("Y-m-d"); ?>">
-              </div>
-
-              <div class="form-group col-lg3 col-md-3 col-sm-6 col-xs-12">
-                <label>Fecha Fin</label>
-                <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="<?php echo date("Y-m-d"); ?>">
-              </div>
-              <div class="form-inline col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <label>Empleado</label>
+              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 pull-right">
+                <label>Evento</label>
                 <select name="empleado_id" id="empleado_id" class="form-control selectpicker" data-live-search="true" required>
                 </select>
                 <br>
-                <button class="btn btn-success" onclick="listar();">
-                  Buscar Asistencia</button>
+                <button class="btn btn-success p-4" onclick="listar();">
+                  Listar Asistencias</button>
               </div>
             </div>
 
