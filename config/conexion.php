@@ -8,7 +8,7 @@ require "global.php";
     //establece el conjunto de caracteress para la conexion
     mysqli_query($conexion, 'SET NAMES "' .DB_ENCODE. '"');
 
-
+  
     //Comprueba si hay errores de conexion
     if (mysqli_connect_errno()) {
         print("Fallo la conexion con la base de datos> %s\n".mysqli_connect_errno());
