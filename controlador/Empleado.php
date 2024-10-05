@@ -80,7 +80,7 @@ switch ($_GET["op"]) {
 
         break;
 
-    case 'select_empleado':
+        case 'select_empleado':
 
         $rspta = $empleado->select();
 

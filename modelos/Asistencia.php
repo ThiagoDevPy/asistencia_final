@@ -29,6 +29,20 @@ class Asistencia
     }
 
 
+
+    public function listar_asistencia($id_evento)
+    {
+        $sql = "SELECT a.*, CONCAT(e.nombre,' ',e.apellidos) AS empleados , e.codigo FROM asistencias a INNER JOIN empleados e ON a.
+        empleado_id=e.id WHERE a.id_evento='$id_evento'";
+        return ejecutarConsulta($sql);
+    }
+
+
+    public function select()
+    {
+         $sql = "SELECT * FROM eventos";
+         return ejecutarConsulta($sql);
+    }
 }
 
 ?>

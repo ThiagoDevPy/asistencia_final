@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
               <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 pull-right">
                 <label>Evento</label>
-                <select name="empleado_id" id="empleado_id" class="form-control selectpicker" data-live-search="true" required>
+                <select name="id_evento" id="id_evento" class="form-control selectpicker" data-live-search="true" required>
                 </select>
                 <br>
                 <button class="btn btn-success p-4" onclick="listar();">
