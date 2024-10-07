@@ -15,28 +15,6 @@ if (!isset($_SESSION['user_id'])) {
 
 require 'header.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validar y sanitizar entradas
-    $nombre = htmlspecialchars(trim($_POST['nombre']), ENT_QUOTES, 'UTF-8');
-    $apellidos = htmlspecialchars(trim($_POST['apellidos']), ENT_QUOTES, 'UTF-8');
-    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $login = htmlspecialchars(trim($_POST['login']), ENT_QUOTES, 'UTF-8');
-    $clave = $_POST['clave'];
-
-    // Verificar el token CSRF
-
-
-    // Manejo de la imagen
-    if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
-        $allowed_types = ['image/jpeg', 'image/png'];
-        if (!in_array(mime_content_type($_FILES['imagen']['tmp_name']), $allowed_types)) {
-            die("Tipo de archivo no permitido.");
-        }
-        // Procesar la imagen
-    }
-
-    // Aquí puedes proceder a guardar los datos en la base de datos
-}
 
 $new_id = uniqid();
 $_SESSION['qr_id'] = $new_id;
@@ -103,6 +81,7 @@ QRcode::png($new_qr_code_data, 'qrcodes/new_qr.png', QR_ECLEVEL_L, 10);
 
                                 // Actualiza el QR cada 2 minutos (120000 ms)
                                 setInterval(updateQRCode, 120000);
+
                             </script>
 
 

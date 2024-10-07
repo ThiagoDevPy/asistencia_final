@@ -115,7 +115,7 @@ function mostrar(id) {
 }
 
 function desactivar(id) {
-    bootbox.confirm("¿Esta seguro de desactivar este dato?", function (result) {
+    bootbox.confirm("¿Esta seguro de desactivar este evento?", function (result) {
         if (result) {
             $.post("../controlador/Evento.php?op=desactivar", { id: id }, function (e) {
                 bootbox.alert(e);
@@ -126,7 +126,7 @@ function desactivar(id) {
 }
 
 function activar(id) {
-    bootbox.confirm("¿Esta seguro de activar este dato?", function (result) {
+    bootbox.confirm("¿Esta seguro de activar este evento?", function (result) {
         if (result) {
             $.post("../controlador/Evento.php?op=activar", { id: id }, function (e) {
                 bootbox.alert(e);
