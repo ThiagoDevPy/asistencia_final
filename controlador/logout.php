@@ -12,6 +12,7 @@ if (ini_get("session.use_cookies")) {
 
 // Finalmente, destruir la sesión
 session_destroy();
+session_unset();
 
 // Redirigir al usuario a la página de inicio de sesión
 header('Location: ../vistas/login.php'); // Cambia 'login.html' por el nombre de tu página de inicio de sesión

@@ -23,6 +23,16 @@ require "global.php";
             //ejecuta la consulta sql y devuelve el resultado
             $query = $conexion->query($sql);
             return $query;
+           
+        }
+
+
+        function ejecutarConsulta1($sql){
+            global $conexion;
+            //ejecuta la consulta sql y devuelve el resultado
+            $query = $conexion->query($sql);
+            return $query;
+            
         }
     
 
