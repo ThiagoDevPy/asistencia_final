@@ -82,7 +82,7 @@ switch ($_GET["op"]) {
                     '<button class="btn btn-danger btn-xs" onclick="desactivar(' . $reg->id . ')"><i class ="fa fa-close"></i></button>' : '<button class="btn btn-warning 
                 btn-xs" onclick="mostrar(' . $reg->id . ')"><i class="fa fa-pencil"></i></button>' . ' ' . '<button class="btn btn-primary btn-xs" onclick="activar(' .
                         $reg->id . ')"><i class="fa fa-check"></i></button>',
-                "1" => $reg->nombre,
+                "1" => $reg->nombres,
                 "2" => $reg->fecha,
                 "3" => $reg->id,
                 "4" => ($reg->estado) ? '<span class="label bg-green">Activado</span>' : '<span class="label bg-red">Desactivado</span>'

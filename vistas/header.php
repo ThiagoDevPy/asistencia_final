@@ -127,7 +127,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="empleado.php"><i class="fa fa-circle-o"></i> Lista de Alumnos</a></li>
+              <li><a href="alumno.php"><i class="fa fa-circle-o"></i> Lista de Alumnos</a></li>
              
             </ul>
           </li>

@@ -65,17 +65,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <!--centro-->
 
           <!--tabla para listar datos-->
-          <div class="panel-body table-responsive" id="listadoregistros">
-            <div class="dataTables_wrapper" id="listadoregistros">
-
-              <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 pull-right">
+          <div class="dataTables_wrapper">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 pull-right">
                 <label>Evento</label>
                 <select name="id_evento" id="id_evento" class="form-control selectpicker" data-live-search="true" required>
                 </select>
                 <br>
-                <button class="btn btn-success p-4" onclick="listar();">
+                <button class="btn btn-success p-4" id="btnlistar" onclick="listar();">
                   Listar Asistencias</button>
               </div>
+         
+          <div class="panel-body table-responsive" id="listadoregistros">
+            
+             
             </div>
 
             <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">

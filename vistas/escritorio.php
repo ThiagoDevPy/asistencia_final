@@ -12,11 +12,11 @@ if (!isset($_SESSION['user_id'])) {
 
 }
 require 'header.php';
-require_once('../modelos/Empleado.php');
-$empleado = new Empleado();
-$rspta = $empleado->cantidad_empleado();
+require_once('../modelos/Alumno.php');
+$alumno = new Alumno();
+$rspta = $alumno->cantidad_empleado();
 $reg = $rspta->fetch_object();
-$reg->empleado_id;
+$reg->id;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validar y sanitizar entradas
@@ -93,14 +93,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <h4 class="font-size: 20px;">
                                         <strong>Alumnos</strong>
                                     </h4>
-                                    <p>Total <?php echo $reg->empleado_id; ?></p>
+                                    <p>Total <?php echo $reg->id; ?></p>
                                 </div>
                                 <div class="icon">
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                 </div>
-                                <div>
-                                    <a href="empleado.php" class="small-box-footer">Agregar <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
+
+                                <a href="alumno.php" class="small-box-footer">Agregar <i class="fa fa-arrow-circle-right"></i></a>
+
                             </div>
                         </div>
 
@@ -127,10 +127,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </a>
                             </div>
                         </div>
-
-
-
-
 
 
 

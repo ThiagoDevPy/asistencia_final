@@ -15,16 +15,16 @@ class Asistencia
 
     public function listar()
     {
-         $sql = "SELECT a.*, CONCAT(e.nombre,' ',e.apellidos) AS empleados , e.codigo FROM asistencias a INNER JOIN empleados e on a.
-         empleado_id=e.id ORDER BY a.id DESC";
+         $sql = "SELECT a.*, CONCAT(e.nombre,' ',e.apellidos) AS alumnos , e.codigo FROM asistencias a INNER JOIN alumnos e on a.
+         alumno_id=e.id ORDER BY a.id DESC";
          return ejecutarConsulta($sql);
     }
 
     //metodo listar registro
-    public function listar_reporte($fecha_inicio, $fecha_fin, $empleado_id)
+    public function listar_reporte($fecha_inicio, $fecha_fin, $alumno_id)
     {
-        $sql = "SELECT a.*, CONCAT(e.nombre,' ',e.apellidos) AS empleados , e.codigo FROM asistencias a INNER JOIN empleados e ON a.
-        empleado_id=e.id WHERE DATE (a.fecha)>='$fecha_inicio' AND DATE(a.fecha)<='$fecha_fin' AND a.empleado_id='$empleado_id'";
+        $sql = "SELECT a.*, CONCAT(e.nombres,' ',e.apellidos) AS alumnos , e.codigo FROM asistencias a INNER JOIN alumnos e ON a.
+        alumno_id=e.id WHERE DATE (a.fecha)>='$fecha_inicio' AND DATE(a.fecha)<='$fecha_fin' AND a.id='$alumno_id'";
         return ejecutarConsulta($sql);
     }
 
@@ -32,8 +32,8 @@ class Asistencia
 
     public function listar_asistencia($id_evento)
     {
-        $sql = "SELECT a.*, CONCAT(e.nombre,' ',e.apellidos) AS empleados , e.codigo FROM asistencias a INNER JOIN empleados e ON a.
-        empleado_id=e.id WHERE a.id_evento='$id_evento'";
+        $sql = "SELECT a.*, CONCAT(e.nombres,' ',e.apellidos) AS alumnos , e.codigo FROM asistencias a INNER JOIN alumnos e ON a.
+        alumno_id=e.id WHERE a.id_evento='$id_evento'";
         return ejecutarConsulta($sql);
     }
 

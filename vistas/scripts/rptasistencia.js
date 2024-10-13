@@ -4,9 +4,9 @@ function init(){
 
     listar();
 
-    $.post("../controlador/Empleado.php?op=select_empleado", function (r){
-        $("#empleado_id").html(r);
-        $('#empleado_id').selectpicker('refresh');
+    $.post("../controlador/Alumno.php?op=select_empleado", function (r){
+        $("#alumno_id").html(r);
+        $('#alumno_id').selectpicker('refresh');
     });
 }
 
@@ -14,7 +14,7 @@ function listar() {
 
     var fecha_inicio = $("#fecha_inicio").val();
     var fecha_fin = $("#fecha_fin").val();
-    var empleado_id = $("#empleado_id").val();
+    var alumno_id = $("#alumno_id").val();
 
 
     tabla = $('#tbllistado').dataTable({
@@ -30,7 +30,7 @@ function listar() {
         "ajax":
         {
             url: '../controlador/Asistencia.php?op=listar_asistencia',
-            data: {fecha_inicio: fecha_inicio, fecha_fin: fecha_fin, empleado_id: empleado_id },
+            data: {fecha_inicio: fecha_inicio, fecha_fin: fecha_fin, alumno_id: alumno_id },
             type: 'get',
             datatype: "json",
             error: function (e) {

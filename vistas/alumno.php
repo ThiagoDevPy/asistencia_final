@@ -75,6 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th>Documento</th>
                 <th>Telefono</th>
                 <th>Carrera</th>
+                <th>Correo</th>
+                <th>Universidad</th>
                 
               </thead>
               <tbody>
@@ -86,6 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <th>Documento</th>
                 <th>Telefono</th>
                 <th>Carrera</th>
+                <th>Correo</th>
+                <th>Universidad</th>
               </tfoot>   
             </table>
 
@@ -98,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form action="" name="formulario" id="formulario" method="POST">
               <div class="form-group col-lg-6 col-md-6 col-xs-12">
                 <label for="">Nombre(*): </label>
-                <input class="form-control" type="hidden" name="empleado_id" id="empleado_id">
+                <input class="form-control" type="hidden" name="alumno_id" id="alumno_id">
                 <input class="form-control" type="text" name="nombre" id="nombre" maxlength="100" placeholder="Nombre" required>
               </div>
               <div class="form-group col-lg-6 col-md-6 col-xs-12">
@@ -114,8 +118,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input class="form-control" type="text" name="telefono" id="telefono" maxlength="70" placeholder="Nombre de usuario" required>
               </div>
               <div class="form-group col-lg-6 col-md-6 col-xs-12">
-                <label for="">Codigo(*): </label>
-                <input class="form-control" type="text" name="codigo" id="codigo" maxlength="70" placeholder="Clave" >
+                <label for="">Carrera(*): </label>
+                <input class="form-control" type="text" name="carrera" id="carrera" maxlength="70" placeholder="Carrera" >
+              </div>
+              <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                <label for="">Correo(*): </label>
+                <input class="form-control" type="text" name="correo" id="correo" maxlength="70" placeholder="Correo" >
+              </div>
+              <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                <label for="">Universidad(*): </label>
+                <input class="form-control" type="text" name="universidad" id="universidad" maxlength="70" placeholder="universidad" >
               </div>
              
 
@@ -149,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 require 'footer.php';
  ?>
 
-<script src="scripts/empleado.js"></script>
+<script src="scripts/alumno.js"></script>
 
 <?php 
 ob_end_flush();

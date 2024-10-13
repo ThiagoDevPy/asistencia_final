@@ -4,7 +4,7 @@
     //creamos una instancia del objeto 
     $asistencia = new Asistencia(); //se instancia un objeto de la clase Asistencia
     
-    $empleado_id = isset($_POST["empleado_id"]) ? limpiarCadena($_POST["empleado_id"]) : ""; // se obtiene el ID del empleadp de la solicitud
+    $alumno_id = isset($_POST["alumno_id"]) ? limpiarCadena($_POST["alumno_id"]) : ""; // se obtiene el ID del empleadp de la solicitud
 
     // se ejecuta un switch para determinar la acciom a realizar segun el parametro op enviado por GET 
 
@@ -19,8 +19,8 @@
             while ($reg = $rspta->fetch_object()) {
                 $data[] = array(
                     "0" => $reg->id,
-                    "1" => $reg->empleado_id,
-                    "2" => $reg->empleados,
+                    "1" => $reg->alumno_id,
+                    "2" => $reg->alumnos,
                     "3" => $reg->fecha,
                     "4" => $reg->hora,
                     "5" => ($reg->tipo == 'Entrada') ? '<span class="label bg-green">' . $reg->tipo . '</span>' : '<span class="label 
@@ -46,20 +46,20 @@
         case 'listar_asistencia':
             $fecha_inicio = $_REQUEST["fecha_inicio"];
             $fecha_fin = $_REQUEST["fecha_fin"];
-            $empleado_id = $_REQUEST["empleado_id"];
+            $alumno_id = $_REQUEST["alumno_id"];
 
 
 
 
-            $rspta = $asistencia->listar_reporte($fecha_inicio, $fecha_fin, $empleado_id);
+            $rspta = $asistencia->listar_reporte($fecha_inicio, $fecha_fin, $alumno_id);
     
             $data = array();
             //iteramos sobre los registros obtenidos y los almacebados en el array
             while ($reg = $rspta->fetch_object()) {
                 $data[] = array(
                     "0" => $reg->id,
-                    "1" => $reg->empleado_id,
-                    "2" => $reg->empleados,
+                    "1" => $reg->alumno_id,
+                    "2" => $reg->alumnos,
                     "3" => $reg->fecha,
                     "4" => $reg->hora,
                     "5" => ($reg->tipo == 'Entrada') ? '<span class="label bg-green">' . $reg->tipo . '</span>' : '<span class="label 
@@ -96,8 +96,8 @@
                 while ($reg = $rspta->fetch_object()) {
                     $data[] = array(
                         "0" => $reg->id,
-                        "1" => $reg->empleado_id,
-                        "2" => $reg->empleados,
+                        "1" => $reg->alumno_id,
+                        "2" => $reg->alumnos,
                         "3" => $reg->fecha,
                         "4" => $reg->hora,
                         "5" => ($reg->tipo == 'Entrada') ? '<span class="label bg-green">' . $reg->tipo . '</span>' : '<span class="label 

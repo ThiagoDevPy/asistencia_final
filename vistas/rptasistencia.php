@@ -82,8 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <input type="date" class="form-control" name="fecha_fin" id="fecha_fin" value="<?php echo date("Y-m-d"); ?>">
            </div> 
            <div class="form-inline col-lg-6 col-md-12 col-sm-12 col-xs-12">
-              <label>Empleado</label>
-              <select name="empleado_id" id="empleado_id" class="form-control selectpicker" data-live-search="true" required>
+              <label>Alumno</label>
+              <select name="alumno_id" id="alumno_id" class="form-control selectpicker" data-live-search="true" required>
               </select>
               <br>
               <button class="btn btn-success" onclick="listar();">

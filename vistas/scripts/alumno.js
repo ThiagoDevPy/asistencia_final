@@ -17,7 +17,9 @@ function limpiar() {
     $("#apellidos").val("");
     $("#documento_numero").val("");
     $("#telefono").val("");
-    $("#codigo").val("");
+    $("#correo").val("");
+    $("#carrera").val("");
+    $("#universidad").val("");
 }
 
 function mostrarform(flag) {
@@ -54,7 +56,7 @@ function listar() {
         ],
         "ajax":
         {
-            url: '../controlador/Empleado.php?op=listar',
+            url: '../controlador/Alumno.php?op=listar',
             type: 'get',
             datatype: "json",
             error: function (e) {
@@ -77,7 +79,7 @@ function guardaryeditar(e) {
 
     $.ajax({
 
-        url: '../controlador/Empleado.php?op=guardaryeditar',
+        url: '../controlador/Alumno.php?op=guardaryeditar',
         type: 'POST',
         data: formData,
         contentType: false,
@@ -95,26 +97,27 @@ function guardaryeditar(e) {
 }
 
 
-function mostrar(empleado_id) {
-    $.post("../controlador/Empleado.php?op=mostrar", { empleado_id: empleado_id },
+function mostrar(alumno_id) {
+    $.post("../controlador/Alumno.php?op=mostrar", { alumno_id: alumno_id },
         function (data, status) {
            
             data = JSON.parse(data);
             mostrarform(true);
-            $("#nombre").val(data.nombre);
+            $("#nombre").val(data.nombres);
             $("#apellidos").val(data.apellidos);
-            $("#documento_numero").val(data.documento_numero);
+            $("#documento_numero").val(data.ci);
             $("#telefono").val(data.telefono);
-            $("#empleado_id").val(data.empleado_id);
-            $("#codigo").val(data.codigo);
-            
+            $("#alumno_id").val(data.id);
+            $("#correo").val(data.correo);
+            $("#carrera").val(data.carrera);
+            $("#universidad").val(data.universidad);
         });
 }
 
-function desactivar(empleado_id) {
+function desactivar(alumno_id) {
     bootbox.confirm("¿Esta seguro de desactivar este dato?", function (result) {
         if (result) {
-            $.post("../controlador/Empleado.php?op=desactivar", { empleado_id: empleado_id }, function (e) {
+            $.post("../controlador/Alumno.php?op=desactivar", { alumno_id: alumno_id }, function (e) {
                 bootbox.alert(e);
                 listar();
             });
@@ -122,10 +125,10 @@ function desactivar(empleado_id) {
     })
 }
 
-function activar(empleado_id) {
+function activar(alumno_id) {
     bootbox.confirm("¿Esta seguro de activar este dato?", function (result) {
         if (result) {
-            $.post("../controlador/Empleado.php?op=activar", { empleado_id: empleado_id }, function (e) {
+            $.post("../controlador/Alumno.php?op=activar", { alumno_id: alumno_id }, function (e) {
                 bootbox.alert(e);
                 listar();
             });

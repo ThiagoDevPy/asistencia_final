@@ -2,20 +2,32 @@
 var tabla;
 //funtion que se ejecuta en el inicio
 function init() {
-   
+    mostrarform(true)
 
-    listar();
+
     $.post("../controlador/Asistencia.php?op=select_evento", function (r){
         $("#id_evento").html(r);
         $('#id_evento').selectpicker('refresh');
     });
- 
+   
 
+}
+
+function mostrarform(flag) {
+    if (flag) {
+        $("#listadoregistros").hide();
+        $("#id_evento").show();
+        $("#btnlistar").show();
+        $('#tbllistado').hide();
+    } else {
+        $("#listadoregistros").show();
+        $('#tbllistado').show();
+    }
 }
 
 
 function listar() {
-
+    mostrarform(false)
     var id_evento = $("#id_evento").val();
     tabla = $('#tbllistado').dataTable({
         "aProcessing": true,
@@ -43,6 +55,12 @@ function listar() {
     }).dataTable();
 }
 
+function mostrartabla(){
+    $("#listadoregistros").show();
+}
 
+function ocultartabla(){
+    $("#listadoregistros").hide();
+}
 
 init();
