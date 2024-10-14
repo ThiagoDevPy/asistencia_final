@@ -3,7 +3,7 @@
 define("DB_HOST", "fra1.clusters.zeabur.com");
 
 //nombre de la base de datos
-define("DB_NAME", "railway");
+define("DB_NAME", "asistencia");
 
 //usuario de la base de datos
 define("DB_USERNAME", "root");
