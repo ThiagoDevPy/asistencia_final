@@ -113,6 +113,7 @@ switch ($_GET["op"]) {
 
         break;
 
+
     case 'verificar':
 
             // Validamos si el usuario tiene acceso al sistema

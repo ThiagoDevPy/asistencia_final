@@ -32,7 +32,7 @@ function listar() {
     tabla = $('#tbllistado').dataTable({
         "aProcessing": true,
         "aServerSide": true,
-        dom: 'Bfrtip',
+        dom: '<"top"Blf>rt<"bottom"ip><"clear">', // Centrar botones
         buttons: [
             'copyHtml5',
             'excelHtml5',
@@ -51,7 +51,9 @@ function listar() {
         },
         "bDestroy": true,
         "iDisplayLength": 10,
-        "order": [[0, "desc"]]
+        "order": [[0, "desc"]],
+       "lengthChange": false, // Oculta el control de "entries"
+        "processing": false
     }).dataTable();
 }
 

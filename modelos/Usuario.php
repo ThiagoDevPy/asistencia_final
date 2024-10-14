@@ -78,6 +78,13 @@ class Usuario
         return ejecutarConsulta($sql);
     }
 
+    public function mostrarusu($idusuario)
+    {
+        $sql = "SELECT nombre FROM usuarios WHERE id='$idusuario'";
+        return ejecutarConsulta($sql);
+    }
+
+
 }
 
 ?>

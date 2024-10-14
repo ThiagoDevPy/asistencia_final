@@ -50,7 +50,7 @@ class Alumno
         $sql = "SELECT * FROM alumnos";
         return ejecutarConsulta($sql);
    }
-   public function cantidad_empleado()
+   public function cantidad_alumnos()
    {
        $sql = "SELECT count(*) id FROM alumnos";
        return ejecutarConsulta($sql);

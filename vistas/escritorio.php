@@ -14,34 +14,11 @@ if (!isset($_SESSION['user_id'])) {
 require 'header.php';
 require_once('../modelos/Alumno.php');
 $alumno = new Alumno();
-$rspta = $alumno->cantidad_empleado();
+$rspta = $alumno->cantidad_alumnos();
 $reg = $rspta->fetch_object();
 $reg->id;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Validar y sanitizar entradas
-    $nombre = htmlspecialchars(trim($_POST['nombre']), ENT_QUOTES, 'UTF-8');
-    $apellidos = htmlspecialchars(trim($_POST['apellidos']), ENT_QUOTES, 'UTF-8');
-    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
-    $login = htmlspecialchars(trim($_POST['login']), ENT_QUOTES, 'UTF-8');
-    $clave = $_POST['clave'];
 
-    // Verificar el token CSRF
-    if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-        die("Token CSRF no válido.");
-    }
-
-    // Manejo de la imagen
-    if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
-        $allowed_types = ['image/jpeg', 'image/png'];
-        if (!in_array(mime_content_type($_FILES['imagen']['tmp_name']), $allowed_types)) {
-            die("Tipo de archivo no permitido.");
-        }
-        // Procesar la imagen
-    }
-
-    // Aquí puedes proceder a guardar los datos en la base de datos
-}
 
 ?>
 
@@ -52,15 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Main content -->
     <section class="content">
+        <div class="box">
+            <!-- Default box -->
+            <div class="row">
 
-        <!-- Default box -->
-        <div class="row">
+                <!-- /.col-md12 -->
+                <div class="col-md-12">
 
-            <!-- /.col-md12 -->
-            <div class="col-md-12">
+                    <!--fin box-->
 
-                <!--fin box-->
-                <div class="box">
                     <div class="panel-body">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
@@ -109,11 +86,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 
-                            <div class="small-box bg-green">
-                                <a href="rptasistencia.php" class="small-box-footer">
+                            <div class="small-box bg-blue">
+                                <a href="regasistencia.php" class="small-box-footer">
                                     <div class="inner">
                                         <h5 class="font-size: 20px;">
-                                            <strong>Reporte de asistencias</strong>
+                                            <strong>Registrar de asistencias</strong>
                                         </h5>
                                         <p>Modulo</p>
                                     </div>
@@ -151,11 +128,103 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <!--fin box-->
 
-                </div>
-                <!-- /.col-md12 -->
 
+                    <!-- /.col-md12 -->
+
+                </div>
+                <!-- fin Default-box -->
             </div>
-            <!-- fin Default-box -->
+
+
+
+
+            <div class="row">
+
+                <!-- /.col-md12 -->
+                <div class="col-md-12">
+
+                    <!--fin box-->
+
+                    <div class="panel-body">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                            <div class="small-box bg-red">
+                                <a href="usuario.php" class="small-box-footer">
+                                    <div class="inner">
+                                        <h5 class="font-size: 20px;">
+                                            <strong>Usuarios</strong>
+                                        </h5>
+                                        <p>Modulo</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </div>&nbsp;
+                                    <div class="small-box-footer">
+                                        <i class="fa"></i>
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+                            <div class="small-box bg-yellow">
+                                <a href="evento.php" class="small-box-footer">
+                                    <div class="inner">
+                                        <h5 class="font-size: 20px;">
+                                            <strong>Eventos</strong>
+                                        </h5>
+                                        <p>Modulo</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </div>&nbsp;
+                                    <div class="small-box-footer">
+                                        <i class="fa"></i>
+                                    </div>
+
+                                </a>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <!--box-header-->
+
+                        <!--centro-->
+
+                        <!--tabla para listar datos-->
+
+                        <!--fin tabla para listar datos-->
+
+                        <!--formulatio para datos-->
+                        <div class="panel-body" id="formularioregistros">
+
+
+
+                        </div>
+                        <!--fin formulatio para datos-->
+
+                        <!--fin centro-->
+
+                    </div>
+                    <!--fin box-->
+
+
+                    <!-- /.col-md12 -->
+
+                </div>
+                <!-- fin Default-box -->
+            </div>
+
+
+        </div>
+
 
     </section>
     <!-- /.content -->

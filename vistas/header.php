@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -26,6 +30,15 @@
 
   <link rel="stylesheet" type="text/css" href="../public/css/bootstrap-select.min.css">
 
+
+  <style>
+    .dataTables_wrapper .top {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin-bottom: 10px; /* Espaciado inferior, ajusta según sea necesario */
+}
+  </style>
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -51,25 +64,27 @@
 
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="hidden-xs">Admin</span>
-                
+                <span class="hidden-xs" id="nusuario"></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
                
                 <!-- Menu Footer-->
                 <li class="user-header">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
+                  <div class="pull-center" style="display:flex; justify-content: center; ">
+                   <img src="../files/usuarios/1726720382.jpg" alt=""class="user-image" style="width: 100px; height: 100px;">
                   </div>
-                  <div class="pull-right">
+                </li>
+
+
+                <li class="user-main">
+                  <div>
                     <a href="../controlador/logout.php" class="btn btn-default btn-flat">Salir</a>
                   </div>
                 </li>
               </ul>
             </li>
             <!-- Control Sidebar Toggle Button -->
-
           </ul>
         </div>
       </nav>
@@ -100,7 +115,6 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="asistencia.php"><i class="fa fa-circle-o"></i> Asistencias</a></li>
-              <li><a href="rptasistencia.php"><i class="fa fa-circle-o"></i> Reportes</a></li>
               <li><a href="regasistencia.php"><i class="fa fa-circle-o"></i> Registrar Asistencias</a></li>
             </ul>
           </li>
@@ -153,3 +167,6 @@
       </section>
       <!-- /.sidebar -->
     </aside>
+
+
+    <script src="scripts/header.js"></script>

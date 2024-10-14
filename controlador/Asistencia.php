@@ -18,8 +18,8 @@
             //iteramos sobre los registros obtenidos y los almacebados en el array
             while ($reg = $rspta->fetch_object()) {
                 $data[] = array(
-                    "0" => $reg->id,
-                    "1" => $reg->alumno_id,
+                    "0" => $reg->alumno_id,
+                    "1" => $reg->universidad,
                     "2" => $reg->alumnos,
                     "3" => $reg->fecha,
                     "4" => $reg->hora,
@@ -95,12 +95,13 @@
                 //iteramos sobre los registros obtenidos y los almacebados en el array
                 while ($reg = $rspta->fetch_object()) {
                     $data[] = array(
-                        "0" => $reg->id,
-                        "1" => $reg->alumno_id,
-                        "2" => $reg->alumnos,
-                        "3" => $reg->fecha,
-                        "4" => $reg->hora,
-                        "5" => ($reg->tipo == 'Entrada') ? '<span class="label bg-green">' . $reg->tipo . '</span>' : '<span class="label 
+                        "0" => $reg->alumno_id,
+                        "1" => $reg->alumnos,
+                        "2" => $reg->fecha,
+                        "3" => $reg->hora,
+                        "4" => $reg->universidad,
+                        "5" => $reg->carrera,
+                        "6" => ($reg->tipo == 'Entrada') ? '<span class="label bg-green">' . $reg->tipo . '</span>' : '<span class="label 
                         bg-orange">' . $reg->tipo . '</span>'
                         
                     );

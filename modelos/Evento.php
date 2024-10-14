@@ -67,7 +67,7 @@ class Evento
 
     public function cantidad_eventos()
     {
-        $sql = "SELECT count(*) nombre FROM eventos";
+        $sql = "SELECT count(*) id FROM eventos";
         return ejecutarConsulta($sql);
     }
 

@@ -38,28 +38,11 @@
           <input class="form-control" id="contrasena" type="password" placeholder=Contraseña />
           
         </div>
-        <div class="form-check mb-3">
-          <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-          <label class="form-check-label" for="inputRememberPassword">Guardar contraseña</label>
-        </div>
         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-          
           <a class="btn btn-primary" onclick="login()">Iniciar Sesion</a>
         </div>
-
-
-        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-          
-        <a class="small" href="password.php">Olvidaste tu contraseña?</a>
-        </div>
-
-        
-
-
       </form>
-      <div class="card-footer text-center py-3 d-flex align-items-center justify-content-between mt-4 mb-0">
-        <div class="small"><a href="register.php">No tienes una cuenta? Registrarme</a></div>
-      </div>
+     
 
     </div>
     <!-- /.login-box-body -->

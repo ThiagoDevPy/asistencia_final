@@ -66,8 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
           <!--tabla para listar datos-->
           <div class="dataTables_wrapper">
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 pull-right">
-                <label>Evento</label>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 pull-center">
+                <label>Seleccione un Evento</label>
                 <select name="id_evento" id="id_evento" class="form-control selectpicker" data-live-search="true" required>
                 </select>
                 <br>
@@ -82,22 +82,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
               <thead>
-                <th>Id de Asistencia</th>
                 <th>Id del Alumno</th>
-                <th>Nombre</th>
+                <th>Nombres</th>
                 <th>Fecha</th>
                 <th>Hora</th>
+                <th>Universidad</th>
+                <th>Carrera</th>
                 <th>Tipo</th>
 
               </thead>
               <tbody>
               </tbody>
               <tfoot>
-                <th>Id de Asistencia</th>
-                <th>Id del Alumno</th>
-                <th>Nombre</th>
+              <th>Id del Alumno</th>
+                <th>Nombres</th>
                 <th>Fecha</th>
                 <th>Hora</th>
+                <th>Universidad</th>
+                <th>Carrera</th>
                 <th>Tipo</th>
               </tfoot>
             </table>

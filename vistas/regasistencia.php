@@ -118,7 +118,7 @@ QRcode::png($new_qr_code_data, 'qrcodes/new_qr.png', QR_ECLEVEL_L, 10);
 require 'footer.php';
 ?>
 
-<script src="scripts/asistencia.js"></script>
+
 
 <?php
 ob_end_flush();
