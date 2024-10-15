@@ -3,123 +3,107 @@ ob_start();
 session_start(); // Iniciar la sesión
 require '../config/conexion.php';
 require 'phpqrcode/qrlib.php';
+
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
-    // Redirigir al usuario a la página de inicio de sesión si no está autenticado
     header('Location: login.php'); // Cambia 'login.html' por el nombre de tu página de inicio de sesión
-    exit(); // Asegúrate de salir del script después de redirigir
-
+    exit();
 }
 
-
-
+// Header
 require 'header.php';
 
+if (!isset($_SESSION['qr_id'])) {
+    $new_id = uniqid();
+    $_SESSION['qr_id'] = $new_id;
 
-$new_id = uniqid();
-$_SESSION['qr_id'] = $new_id;
-$stmt = $conexion->prepare("INSERT INTO qr (qr_id, estado) VALUES (?, 'no utilizado')");
-$stmt->bind_param("s", $new_id);
-$stmt->execute();
+    // Usar una declaración preparada para evitar inyecciones SQL
+    $stmt = $conexion->prepare("INSERT INTO qr (qr_id, estado) VALUES (?, 'no utilizado')");
+    $stmt->bind_param("s", $new_id);
+    if (!$stmt->execute()) {
+        die("Error al insertar el código QR: " . $stmt->error);
+    }
 
-$new_qr_code_data = "https://asis.zeabur.app/guardardatos.php?id=" . $new_id;
-QRcode::png($new_qr_code_data, 'qrcodes/new_qr.png', QR_ECLEVEL_L, 10);
-
+    $new_qr_code_data = "https://asis.zeabur.app/controlador/guardardatos.php?id=" . $new_id;
+    QRcode::png($new_qr_code_data, 'qrcodes/new_qr.png', QR_ECLEVEL_L, 10);
+}
 ?>
-<!--CONTENIDO -->
+
+<!-- CONTENIDO -->
 <div class="content-wrapper">
-
-    <!-- Main content -->
     <section class="content">
-
-        <!-- Default box -->
         <div class="row">
-
-            <!-- /.col-md12 -->
             <div class="col-md-12">
-
-                <!--fin box-->
                 <div class="box">
-
-                    <!--box-header-->
                     <div class="box-header with-border">
-                        <h1 class="box-title">Registrar Asistencias </h1>
-                        <div class="box-tools pull-right">
-
-                        </div>
+                        <h1 class="box-title">Registrar Asistencias</h1>
                     </div>
-                    <!--box-header-->
-
-                    <!--centro-->
-
-                    <!--tabla para listar datos-->
                     <div class="panel-body table-responsive" id="listadoregistros">
-                        <div class="panel-body table-responsive" id="listadoregistros">
-                            <h3 class="text-center">Escanear QR</h3> <!-- Cambiado a h3 y centrado -->
-                            <div class="text-center"> <!-- Utilizando Bootstrap para centrar -->
-                                <img id="qrCode" src="qrcodes/new_qr.png" alt="QR Code" />
-                            </div>
-
-                            <script>
-                                function updateQRCode() {
-
-                                    const currentQrId = "<?php echo $_SESSION['qr_id']; ?>"; // Obtener el ID actual
-                                    console.log("ID actual:", currentQrId); // Verifica el ID
-                                    $.get('updateqr.php', {
-                                        id: currentQrId
-                                    }, function(data) {
-                                        const response = JSON.parse(data);
-                                        if (response.new_qr) {
-                                            const qrImage = document.getElementById('qrCode');
-                                            qrImage.src = response.new_qr + '?' + new Date().getTime(); // Añadir timestamp
-
-                                        }
-                                    }).fail(function() {
-                                        console.error('Error al actualizar el QR.');
-                                    });
-                                }
-
-                                // Actualiza el QR cada 2 minutos (120000 ms)
-                                setInterval(updateQRCode, 120000);
-
-                            </script>
-
-
-
+                        <h3 class="text-center">Escanear QR</h3>
+                        <div class="text-center">
+                            <img id="qrCode" src="qrcodes/new_qr.png" alt="QR Code" />
                         </div>
-                        <!--fin tabla para listar datos-->
+                        <div id="timer" class="text-center mt-3"></div> <!-- Contenedor para el temporizador -->
 
-                        <!--formulatio para datos-->
-                        <div class="panel-body" id="formularioregistros">
+                        <script>
+                            let timerDuration = 119; // 2 minutos en segundos
+                            let timer; // Variable para almacenar el intervalo del temporizador
 
+                            // Función para mostrar y reiniciar el temporizador
+                            function startTimer(duration) {
+                                let timerDisplay = document.getElementById('timer');
+                                let timerValue = duration;
 
+                                timer = setInterval(function () {
+                                    let minutes = parseInt(timerValue / 60, 10);
+                                    let seconds = parseInt(timerValue % 60, 10);
 
-                        </div>
-                        <!--fin formulatio para datos-->
+                                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                                    seconds = seconds < 10 ? "0" + seconds : seconds;
 
-                        <!--fin centro-->
+                                    timerDisplay.textContent = "El QR expira en: " + minutes + ":" + seconds;
 
+                                    if (--timerValue < 0) {
+                                        clearInterval(timer);
+                                        timerDisplay.textContent = "El QR ha expirado.";
+                                        // Reiniciar el temporizador
+                                        setTimeout(function() {
+                                            startTimer(duration); // Reiniciar el temporizador después de 3 segundos (puedes ajustar este tiempo)
+                                        }, 200); // Espera 3 segundos antes de reiniciar
+                                    }
+                                }, 1000);
+                            }
+
+                            // Iniciar el temporizador
+                            startTimer(timerDuration);
+
+                            // Función para actualizar el QR
+                            function updateQRCode() {
+                                const currentQrId = "<?php echo $_SESSION['qr_id']; ?>";
+                                console.log("ID actual:", currentQrId);
+                                $.get('updateqr.php', { id: currentQrId }, function(data) {
+                                    const response = JSON.parse(data);
+                                    if (response.new_qr) {
+                                        const qrImage = document.getElementById('qrCode');
+                                        qrImage.src = response.new_qr + '?' + new Date().getTime(); // Añadir timestamp
+                                    }
+                                }).fail(function() {
+                                    console.error('Error al actualizar el QR.');
+                                });
+                            }
+
+                            // Actualiza el QR cada 2 minutos (120000 ms)
+                            setInterval(updateQRCode, 120000); // Mantén la actualización cada 2 minutos
+                        </script>
                     </div>
-                    <!--fin box-->
-
+                    <div class="panel-body" id="formularioregistros"></div>
                 </div>
-                <!-- /.col-md12 -->
-
             </div>
-            <!-- fin Default-box -->
-
+        </div>
     </section>
-    <!-- /.content -->
-
 </div>
-<!--FIN CONTENIDO -->
 
 <?php
 require 'footer.php';
-?>
-
-
-
-<?php
 ob_end_flush();
 ?>
