@@ -16,6 +16,8 @@ function limpiar() {
     $("#nombre").val("");
     $("#fecha").val("");
     $("#id").val("");
+    $("#horaexten").val("");
+    $("#links").val("");
 }
 
 function mostrarform(flag) {
@@ -70,6 +72,8 @@ function guardaryeditar(e) {
     var fecha = $("#fecha").val();
     var id = $("#id").val();
     var nombre = $("#nombre").val();
+    var horaexten = $("#horaexten").val();
+    var links = $("#links").val();
     e.preventDefault();
     $("#btnGuardar").prop("disabled", true);
     var formData = new FormData($("#formulario")[0]);
@@ -77,6 +81,8 @@ function guardaryeditar(e) {
     formData.append("fecha", fecha);
     formData.append("id", id);
     formData.append("nombre", nombre);
+    formData.append("horaexten", horaexten);
+    formData.append("links", links);
 
     $.ajax({
 
@@ -109,8 +115,9 @@ function mostrar(id) {
             $("#nombre").val(data.nombre);
             $("#id").val(data.id);
             $("#fecha").val(data.fecha);
+            $("#horaexten").val(data.horaexten);
+            $("#links").val(data.links);
            var fecha = $("#fecha").val();
-           console.log(fecha);
         });
 }
 

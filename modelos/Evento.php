@@ -15,18 +15,18 @@ class Evento
     }
 
     //metodo insertar evento
-    public function insertar($nombre, $fecha)
+    public function insertar($nombre, $fecha, $horaexten, $links)
     {
-        $sql = "INSERT INTO eventos (nombre,fecha) VALUES ('$nombre', '$fecha')";
+        $sql = "INSERT INTO eventos (nombre,fecha,horaexten) VALUES ('$nombre', '$fecha', '$horaexten', '$links')";
         return ejecutarConsulta($sql);
     }
 
     //METODO EDITAR USAUARIO
-    public function editar($id,$nombre, $fecha)
+    public function editar($id,$nombre, $fecha, $horaexten, $links)
     {   
 
 
-            $sql = "UPDATE eventos SET nombre = '$nombre', fecha = '$fecha'
+            $sql = "UPDATE eventos SET nombre = '$nombre', fecha = '$fecha', horaexten = '$horaexten', links = '$links'
             WHERE id='$id'"; 
         
  

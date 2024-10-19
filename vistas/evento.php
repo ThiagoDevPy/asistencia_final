@@ -39,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <th>Opciones</th>
                                 <th>Nombre de evento</th>
                                 <th>Fecha</th>
-                                <th>Id evento</th>
+                                <th>Hora de Extension</th>
+                                <th>Link del Certificado</th>
                                 <th>Estado</th>
                             </thead>
                             <tbody></tbody>
@@ -47,7 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <th>Opciones</th>
                                 <th>Nombre de evento</th>
                                 <th>Fecha</th>
-                                <th>Id evento</th>
+                                <th>Hora de Extension</th>
+                                <th>Link del Certificado</th>
                                 <th>Estado</th>
                             </tfoot>
                         </table>
@@ -58,11 +60,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="form-group col-lg-6 col-md-6 col-xs-12">
                                 <label for="">Nombre(*): </label>
                                 <input class="form-control" type="hidden" name="id" id="id">
-                                <input class="form-control" type="text" name="nombre" id="nombre" maxlength="100" placeholder="Nombre" required>
+                                <input class="form-control" type="text" name="nombre" id="nombre"  placeholder="Nombre" required>
                             </div>
                             <div class="form-group col-lg3 col-md-3 col-sm-6 col-xs-12">
                                 <label>Fecha Inicio</label>
                                 <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo date("Y-m-d") ; ?>">
+                            </div>
+
+                            <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                                <label for="">Hora de extension(*): </label>
+                                <input class="form-control" type="text" name="horaexten" id="horaexten" maxlength="100" placeholder="Hora de extencion" required>
+                            </div>
+
+                            <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                                <label for="">Link del Certificado(*): </label>
+                                <input class="form-control" type="text" name="links" id="links"  placeholder="Link del Certificado" >
                             </div>
                                 
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

@@ -11,7 +11,8 @@ $evento = new Evento();
 $id_evento = isset($_POST["id"]) ? limpiarCadena($_POST["id"]) : "";
 $nombre = isset($_POST["nombre"]) ? limpiarCadena($_POST["nombre"]) : "";
 $fecha = isset($_POST["fecha"]) ? limpiarCadena($_POST["fecha"]) : "";
-
+$horaexten = isset($_POST["horaexten"]) ? limpiarCadena($_POST["horaexten"]) : "";
+$links = isset($_POST["links"]) ? limpiarCadena($_POST["links"]) : "";
 
 
 //dependiendo de la operacion solicitada mediante la variable $_GET["op"]
@@ -34,12 +35,12 @@ switch ($_GET["op"]) {
         //verificamos si se esta insertando un nuevo usuasrio o editando una existente
         if (empty($id_evento)) {
             //si es un nuevo usuariu, llamamos al metodo insertar de la clase usuario
-            $rspta = $evento->insertar($nombre, $fecha);
+            $rspta = $evento->insertar($nombre, $fecha, $horaexten,$links );
             //Devolvemos un mensaje segun el resultado de la operacion
             echo $rspta ? "Datos registrados correctamente" : " No se pudo registrar todos los datos del usuario";
         } else {
             //si es un usuario existente, llamamos al metodo editar de la clase Usuario
-            $rspta = $evento->editar($id_evento, $nombre, $fecha);
+            $rspta = $evento->editar($id_evento, $nombre, $fecha,$horaexten, $links);
             //devolvemos un mensaje segun el resultado de la operacion
             echo $rspta ? "Datos actualizados correctamente" : "No se pudo actualizar los datos";
         }
@@ -84,8 +85,9 @@ switch ($_GET["op"]) {
                         $reg->id . ')"><i class="fa fa-check"></i></button>',
                 "1" => $reg->nombre,
                 "2" => $reg->fecha,
-                "3" => $reg->id,
-                "4" => ($reg->estado) ? '<span class="label bg-green">Activado</span>' : '<span class="label bg-red">Desactivado</span>'
+                "3" => $reg->horaexten,
+                "4" => $reg->links,
+                "5" => ($reg->estado) ? '<span class="label bg-green">Activado</span>' : '<span class="label bg-red">Desactivado</span>'
 
             );
         }
