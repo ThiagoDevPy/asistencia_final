@@ -54,7 +54,7 @@ if (!isset($_SESSION['qr_id'])) {
                                 let timerDisplay = document.getElementById('timer');
                                 let timerValue = duration;
 
-                                timer = setInterval(function () {
+                                timer = setInterval(function() {
                                     let minutes = parseInt(timerValue / 60, 10);
                                     let seconds = parseInt(timerValue % 60, 10);
 
@@ -65,23 +65,23 @@ if (!isset($_SESSION['qr_id'])) {
 
                                     if (--timerValue < 0) {
                                         clearInterval(timer);
+                                        updateQRCode();
                                         timerDisplay.textContent = "El QR ha expirado.";
                                         // Reiniciar el temporizador
                                         setTimeout(function() {
-                                            startTimer(duration); // Reiniciar el temporizador después de 3 segundos (puedes ajustar este tiempo)
-                                        }, 200); // Espera 3 segundos antes de reiniciar
+                                            startTimer(duration); // Reiniciar el temporizador
+                                        }, 1000); // Espera 3 segundos antes de reiniciar
                                     }
                                 }, 1000);
                             }
 
-                            // Iniciar el temporizador
-                            startTimer(timerDuration);
-
                             // Función para actualizar el QR
                             function updateQRCode() {
-                                const currentQrId = "<?php echo $_SESSION['qr_id']; ?>";
+                                const currentQrId = "<?php echo $_SESSION['qr_id']; ?>"; // Asegúrate de que esta variable está correctamente definida
                                 console.log("ID actual:", currentQrId);
-                                $.get('updateqr.php', { id: currentQrId }, function(data) {
+                                $.get('updateqr.php', {
+                                    id: currentQrId
+                                }, function(data) {
                                     const response = JSON.parse(data);
                                     if (response.new_qr) {
                                         const qrImage = document.getElementById('qrCode');
@@ -92,8 +92,10 @@ if (!isset($_SESSION['qr_id'])) {
                                 });
                             }
 
-                            // Actualiza el QR cada 2 minutos (120000 ms)
-                            setInterval(updateQRCode, 120000); // Mantén la actualización cada 2 minutos
+                            // Iniciar el temporizador al cargar la página
+                            window.onload = function() {
+                                startTimer(timerDuration);
+                            };
                         </script>
                     </div>
                     <div class="panel-body" id="formularioregistros"></div>
