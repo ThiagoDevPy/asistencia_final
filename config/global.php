@@ -10,7 +10,7 @@ define("DB_USERNAME", "root");
 
 
 // contrasena de la base de datos
-define("DB_PASSWORD", "1L0Vy8R52pu3hsjCHwF7xqYB6gd9c4Dt");
+define("DB_PASSWORD", "8Plwn04fh936bKBTzi7Gu1rQSD5YMs2t");
 
 //codificacion de caracteres
 define("DB_ENCODE", "utf8");
@@ -21,6 +21,6 @@ define("PRO_NOMBRE", "CompartiendoCodigo");
 //Zona horaria
 define("ZONA_HORARIA", "America/Asuncion");
 
-define("PORT", "32505");
+define("PORT", "31753");
 
 ?>
