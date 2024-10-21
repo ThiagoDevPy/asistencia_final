@@ -24,7 +24,7 @@ if (!isset($_SESSION['qr_id'])) {
         die("Error al insertar el código QR: " . $stmt->error);
     }
 
-    $new_qr_code_data = "https://asis.zeabur.app/controlador/guardardatos.php?id=" . $new_id;
+    $new_qr_code_data = "https://asis.fra1.zeabur.app/controlador/guardardatos.php?id=" . $new_id;
     QRcode::png($new_qr_code_data, 'qrcodes/new_qr.png', QR_ECLEVEL_L, 10);
 }
 ?>
