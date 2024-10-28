@@ -1,16 +1,16 @@
 <?php
 //IP del servidor de la base de datos
-define("DB_HOST", "fra1.clusters.zeabur.com");
+define("DB_HOST", "autorack.proxy.rlwy.net");
 
 //nombre de la base de datos
-define("DB_NAME", "zeabur");
+define("DB_NAME", "railway");
 
 //usuario de la base de datos
 define("DB_USERNAME", "root");
 
 
 // contrasena de la base de datos
-define("DB_PASSWORD", "3VpXdYRfe4gqJ5ZD1zt2Go0Oj9v78uT6");
+define("DB_PASSWORD", "ghHTmbpryXRjZFfqKjZnIrLwAQLDiKoS");
 
 //codificacion de caracteres
 define("DB_ENCODE", "utf8");
@@ -21,6 +21,6 @@ define("PRO_NOMBRE", "CompartiendoCodigo");
 //Zona horaria
 define("ZONA_HORARIA", "America/Asuncion");
 
-define("PORT", "31149");
+define("PORT", "48325");
 
 ?>
