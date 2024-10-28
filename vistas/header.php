@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -33,10 +29,12 @@
 
   <style>
     .dataTables_wrapper .top {
-    display: flex;
-    justify-content: center; /* Centra los botones horizontalmente */
-    margin-bottom: 10px; /* Espaciado inferior, ajusta según sea necesario */
-}
+      display: flex;
+      justify-content: center;
+      /* Centra los botones horizontalmente */
+      margin-bottom: 10px;
+      /* Espaciado inferior, ajusta según sea necesario */
+    }
   </style>
 
 </head>
@@ -68,11 +66,11 @@
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
-               
+
                 <!-- Menu Footer-->
                 <li class="user-header">
                   <div class="pull-center" style="display:flex; justify-content: center; ">
-                   <img src="../files/usuarios/1726720382.jpg" alt=""class="user-image" style="width: 100px; height: 100px;">
+                    <img src="../files/usuarios/1726720382.jpg" alt="" class="user-image" style="width: 100px; height: 100px;">
                   </div>
                 </li>
 
@@ -99,7 +97,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
 
-      
+
 
 
           <li><a href="escritorio.php"><i class="fa  fa-dashboard (alias)"></i> <span>Escritorio</span></a>
@@ -129,7 +127,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="evento.php"><i class="fa fa-circle-o"></i>Eventos</a></li>
-              
+
             </ul>
           </li>
 
@@ -142,14 +140,14 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="alumno.php"><i class="fa fa-circle-o"></i> Lista de Alumnos</a></li>
-             
+
             </ul>
           </li>
 
 
 
-          
-         
+
+
 
           <li class="treeview">
             <a href="#">
@@ -160,7 +158,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="usuario.php"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-              
+
             </ul>
           </li>
         </ul>

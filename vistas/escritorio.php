@@ -180,7 +180,7 @@ $reg->id;
                                         <p>Modulo</p>
                                     </div>
                                     <div class="icon">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <i class="fa fa-list" aria-hidden="true"></i>
                                     </div>&nbsp;
                                     <div class="small-box-footer">
                                         <i class="fa"></i>
