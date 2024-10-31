@@ -1,6 +1,6 @@
 <?php
 //IP del servidor de la base de datos
-define("DB_HOST", "junction.proxy.rlwy.net");
+define("DB_HOST", "autorack.proxy.rlwy.net");
 
 //nombre de la base de datos
 define("DB_NAME", "railway");
@@ -9,17 +9,17 @@ define("DB_NAME", "railway");
 define("DB_USERNAME", "root");
 
 // contrasena de la base de datos
-define("DB_PASSWORD", "vdFdTEgzmUybXTcvZgvPnSOHbRrZfimQ");
+define("DB_PASSWORD", "IXLqTwmjWQBXbYLhgIKQGVBmxAyMESYV");
 
 //codificacion de caracteres
 define("DB_ENCODE", "utf8");
 
 //Nombre del proyecto
-define("PRO_NOMBRE", "CompartiendoCodigo");
+define("PRO_NOMBRE", "UDN");
 
 //Zona horaria
 define("ZONA_HORARIA", "America/Asuncion");
 
-define("PORT", "30204");
+define("PORT", "22430");
 
 ?>
