@@ -2,6 +2,7 @@
 //incluye el archivo global.php
 require "global.php";
 
+
     //hacemos conexion con la base de datos
     $conexion = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME, PORT);
 
