@@ -1,6 +1,6 @@
 <?php 
 
-header("location: login");
+
 // Manejar otras rutas
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = trim($uri, '/');
