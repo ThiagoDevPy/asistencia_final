@@ -1,0 +1,18 @@
+nginx config 
+server {
+    listen 80;
+    server_name asistencia-admin.fra1.zeabur.app;
+
+    # Otras configuraciones...
+
+    location / {
+        # Redirige a index.php como controlador principal
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    # Reescribe las URLs para ocultar '/vistas/' y '.php'
+    location ~ ^/(.*)$ {
+        rewrite ^/(.*)/login$ /vistas/login.php last;
+        rewrite ^/(.*)/register$ /vistas/escritorio.php last; # Agrega más según sea necesario
+    }
+}
