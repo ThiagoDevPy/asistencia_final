@@ -236,7 +236,7 @@ $reg->id;
 require 'footer.php';
 ?>
 
-<script src="scripts/asistencia.js"></script>
+<script src="/vistas/scripts/asistencia.js"></script>
 
 <?php
 ob_end_flush();
