@@ -56,7 +56,7 @@
   <!-- Bootstrap 3.3.7 -->
   <script src="../public/js/bootstrap.min.js"></script>
   <script src="../public/js/bootbox.min.js"></script>
-  <script src="scripts/validarlogin.js"></script>
+  <script src="/vistas/scripts/validarlogin.js"></script>
 
 </body>
 
