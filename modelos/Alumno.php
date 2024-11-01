@@ -1,7 +1,7 @@
 <?php
 //incluir la conexion de base de datos
 
-require "../config/conexion.php";
+require "config/conexion.php";
 
 class Alumno
 {
