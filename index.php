@@ -1,5 +1,7 @@
 <?php 
 
+// index.php
+define('BASE_PATH', __DIR__);
 
 // Manejar otras rutas
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
