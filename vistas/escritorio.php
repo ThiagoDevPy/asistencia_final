@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 
 }
 require 'header.php';
-require_once('../modelos/Alumno.php');
+require_once('/modelos/Alumno.php');
 $alumno = new Alumno();
 $rspta = $alumno->cantidad_alumnos();
 $reg = $rspta->fetch_object();
