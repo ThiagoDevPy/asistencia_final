@@ -167,4 +167,4 @@
     </aside>
 
 
-    <script src="/vistas/scripts/header.js"></script>
+    <script src="scripts/header.js"></script>

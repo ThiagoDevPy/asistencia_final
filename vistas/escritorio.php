@@ -7,12 +7,12 @@ session_start(); // Iniciar la sesión
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
     // Redirigir al usuario a la página de inicio de sesión si no está autenticado
-    header('Location: login'); // Cambia 'login.html' por el nombre de tu página de inicio de sesión
+    header('Location: login.php'); // Cambia 'login.html' por el nombre de tu página de inicio de sesión
     exit(); // Asegúrate de salir del script después de redirigir
 
 }
 require 'header.php';
-require_once BASE_PATH . '/modelos/Alumno.php';
+require_once '../modelos/Alumno.php';
 $alumno = new Alumno();
 $rspta = $alumno->cantidad_alumnos();
 $reg = $rspta->fetch_object();
@@ -236,7 +236,7 @@ $reg->id;
 require 'footer.php';
 ?>
 
-<script src="/vistas/scripts/asistencia.js"></script>
+<script src="scripts/asistencia.js"></script>
 
 <?php
 ob_end_flush();
