@@ -48,7 +48,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>U</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"> <img src="../public/dist/img/Logos-uninorte-05-1.png" width="115" height="47" alt="" /><b></b></span>
+        <span class="logo-lg"> <img src="../public/img/uninorte-logo.png" width="100 " height="30" alt="" /><b></b></span>
       </a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
