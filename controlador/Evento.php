@@ -19,7 +19,6 @@ $links = isset($_POST["links"]) ? limpiarCadena($_POST["links"]) : "";
 switch ($_GET["op"]) {
     case 'guardaryeditar':
     
-
         if (!empty($fecha)) {
             $dateTime = DateTime::createFromFormat('Y-m-d', $fecha);
             if ($dateTime) {

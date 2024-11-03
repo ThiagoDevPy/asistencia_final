@@ -3,7 +3,7 @@ function obtenerInformacionUsuario() {
     xhr.open('GET', '../controlador/obtenerusuario.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
@@ -11,11 +11,10 @@ function obtenerInformacionUsuario() {
                     // Mostrar la información del usuario en la página
                     document.getElementById('nusuario').textContent = response.username;
                 } else {
-                    
-                    alert(response.message) ;
+                    console.log(response.message);
                 }
             } else {
-                alert('Error en la solicitud.') ;
+                
             }
         }
     };
@@ -25,4 +24,4 @@ function obtenerInformacionUsuario() {
 
 // Llamar a la función para obtener la información del usuario
 
-window.onload = obtenerInformacionUsuario ;
+window.onload = obtenerInformacionUsuario;

@@ -16,7 +16,7 @@ function login() {
                 if (response.success) {
                     window.location.href = 'escritorio.php'; // Redirigir al dashboard
                 } else {
-                    alert("Datos Incorrectos");
+                    bootbox.alert("Datos Incorrectos.");
                 }
             } else {
                 document.getElementById('message').textContent = 'Error en la solicitud.';

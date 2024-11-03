@@ -1,10 +1,18 @@
-CREATE DATABASE  IF NOT EXISTS `zeabur` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `zeabur`;
+CREATE DATABASE  IF NOT EXISTS `railway` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `railway`;
 -- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
--- Host: fra1.clusters.zeabur.com    Database: zeabur
+-- Host: junction.proxy.rlwy.net    Database: railway
 -- ------------------------------------------------------
--- Server version	8.0.33
+-- Server version	9.1.0
+
+
+
+/*CREATE USER 'alumnos'@'%' IDENTIFIED BY 'Alumnos_Uninorte2024Ñ';
+GRANT SELECT, INSERT, UPDATE, DELETE ON railway.* TO 'alumnos'@'%';
+FLUSH PRIVILEGES;*/;
+
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,14 +34,14 @@ DROP TABLE IF EXISTS `alumnos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `alumnos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombres` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `apellidos` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `ci` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `telefono` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `codigo` varchar(35) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `carrera` varchar(45) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `correo` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `universidad` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nombres` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `apellidos` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `ci` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `telefono` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `codigo` varchar(35) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `carrera` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `correo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `universidad` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1043 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -60,7 +68,7 @@ CREATE TABLE `asistencias` (
   `alumno_id` int NOT NULL,
   `hora` time NOT NULL,
   `fecha` date NOT NULL,
-  `tipo` varchar(28) COLLATE utf8mb4_general_ci NOT NULL,
+  `tipo` varchar(28) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `id_evento` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_empelado_id` (`alumno_id`),
@@ -76,7 +84,6 @@ CREATE TABLE `asistencias` (
 
 LOCK TABLES `asistencias` WRITE;
 /*!40000 ALTER TABLE `asistencias` DISABLE KEYS */;
-
 /*!40000 ALTER TABLE `asistencias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,10 +96,10 @@ DROP TABLE IF EXISTS `eventos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `eventos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `nombre` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `fecha` date NOT NULL,
   `estado` tinyint(1) DEFAULT '1',
-  `links` varchar(1000) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `links` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `horaexten` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -110,15 +117,15 @@ UNLOCK TABLES;
 
 --
 -- Table structure for table `qr`
---  
+--
 
 DROP TABLE IF EXISTS `qr`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `qr` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `qr_id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `estado` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
+  `qr_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `estado` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -130,7 +137,7 @@ CREATE TABLE `qr` (
 
 LOCK TABLES `qr` WRITE;
 /*!40000 ALTER TABLE `qr` DISABLE KEYS */;
-
+/*!40000 ALTER TABLE `qr` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -142,15 +149,15 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `apellidos` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `login` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `imagen` varchar(64) COLLATE utf8mb4_general_ci NOT NULL,
+  `nombre` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `apellidos` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `login` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `imagen` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `estado` tinyint NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,16 +166,16 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Sebastian','Saldivar','sebas','sebastiansaldivar092@gmail.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','1726758482.jpg',1),(2,'sebas','saldivar','sebas1','sebas@sebas.com','$2y$10$TiSMFK7C9syPLD4c22K6fOBYZdFwDbFy.j51BmRGq3o06IrxrGCBi','1726766494.jpg',1);
+INSERT INTO `usuarios` VALUES (1,'Sebastian','Saldivar','sebas','sebastiansaldivar092@gmail.com','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','1726758482.jpg',1),(2,'sebas','saldivar','sebas1','sebas@sebas.com','$2y$10$TiSMFK7C9syPLD4c22K6fOBYZdFwDbFy.j51BmRGq3o06IrxrGCBi','1726766494.jpg',1),(6,'Admin','Admin','admin','admin@admin.com','$2y$10$.QdMiEruS/RxLc0VU68/kOl9IVRNCmgD0k5UD3pgzPzjGvz5uHRz6','1730645378.jpg',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'zeabur'
+-- Dumping events for database 'railway'
 --
 
 --
--- Dumping routines for database 'zeabur'
+-- Dumping routines for database 'railway'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -180,4 +187,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-19 12:42:09
+-- Dump completed on 2024-11-03 12:00:58
