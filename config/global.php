@@ -9,7 +9,7 @@ define("DB_NAME", "railway");
 define("DB_USERNAME", "root");
 
 // contrasena de la base de datos
-define("DB_PASSWORD", "NJFPNilMTsPIvEAzABFvoICAwKnuOoVP");
+define("DB_PASSWORD", "JZJtzUrOZXqKbSesaMhVxSfqaxotrTXU");
 
 //codificacion de caracteres
 define("DB_ENCODE", "utf8");
@@ -20,6 +20,6 @@ define("PRO_NOMBRE", "UDN");
 //Zona horaria
 define("ZONA_HORARIA", "America/Asuncion");
 
-define("PORT", "39893");
+define("PORT", "50253");
 
 ?>
