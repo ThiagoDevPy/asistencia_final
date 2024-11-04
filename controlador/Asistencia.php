@@ -129,14 +129,4 @@ switch ($_GET["op"]) {
         }
 
         break;
-
-
-
-
-
-
-    case 'registrar_asistencia';
-        $evento_id = $_REQUEST["id_evento"];
-
-        break;
 }
