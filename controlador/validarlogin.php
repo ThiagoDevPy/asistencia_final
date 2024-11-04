@@ -35,4 +35,6 @@ $conexion->close();
 // Enviar respuesta JSON
 header('Content-Type: application/json');
 echo json_encode($response);
+
+ob_end_flush();
 ?>
