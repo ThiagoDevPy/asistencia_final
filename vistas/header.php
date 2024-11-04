@@ -63,7 +63,7 @@
 
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="hidden-xs" id="nusuario"></span>
+                <span class="hidden-xs fa fa-angle-down" id=""></span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
@@ -77,8 +77,13 @@
 
 
                 <li class="user-main">
-                  <div>
-                    <a href="../controlador/logout.php" class="btn btn-default btn-flat">Salir</a>
+                  <div style="margin: 10px; display:flex; justify-content: center;">
+                  <span class="hidden-xs" ><strong id="nusuario"></strong></span>
+                  </div>
+                </li>
+                <li class="user-footer">
+                  <div style="margin: 5px;">
+                    <a href="../controlador/logout.php" class="btn btn-default btn-flat">Cerrar Sesion</a>
                   </div>
                 </li>
               </ul>

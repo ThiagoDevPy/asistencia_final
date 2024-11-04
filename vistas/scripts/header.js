@@ -10,6 +10,7 @@ function obtenerInformacionUsuario() {
                 if (response.success) {
                     // Mostrar la información del usuario en la página
                     document.getElementById('nusuario').textContent = response.username;
+                    document.getElementById('nusuario1').textContent = response.username;
                 } else {
                     console.log(response.message);
                 }
