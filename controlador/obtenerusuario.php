@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start(); // Iniciar la sesión
 
 // Verificar si el usuario está autenticado
@@ -34,4 +35,5 @@ if ($user) {
 } else {
     echo json_encode(['success' => false, 'message' => 'Usuario no encontrado']);
 }
+ob_end_flush();
 ?>
