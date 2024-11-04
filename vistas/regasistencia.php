@@ -3,7 +3,7 @@ ob_start();
 session_start(); // Iniciar la sesión
 require '../config/conexion.php';
 require 'phpqrcode/qrlib.php';
-
+include_once '../config/qrconfig.php';
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php'); // Cambia 'login.html' por el nombre de tu página de inicio de sesión
@@ -12,6 +12,9 @@ if (!isset($_SESSION['user_id'])) {
 
 // Header
 require 'header.php';
+
+
+
 
 if (!isset($_SESSION['qr_id'])) {
     $new_id = uniqid();
@@ -23,12 +26,11 @@ if (!isset($_SESSION['qr_id'])) {
     if (!$stmt->execute()) {
         die("Error al insertar el código QR: " . $stmt->error);
     }
-
-    $new_qr_code_data = "https://asis.fra1.zeabur.app/controlador/guardardatos.php?id=" . $new_id;
+    global $base_url;
+    $new_qr_code_data = $base_url."/controlador/guardardatos.php?id=" . $new_id;
     QRcode::png($new_qr_code_data, 'qrcodes/new_qr.png', QR_ECLEVEL_L, 10);
 }
 ?>
-
 <!-- CONTENIDO -->
 <div class="content-wrapper">
     <section class="content">

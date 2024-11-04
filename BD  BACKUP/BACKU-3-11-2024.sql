@@ -7,10 +7,9 @@ USE `railway`;
 -- Server version	9.1.0
 
 
-
-/*CREATE USER 'alumnos'@'%' IDENTIFIED BY 'Alumnos_Uninorte2024Ñ';
+CREATE USER 'alumnos'@'%' IDENTIFIED BY 'Alumnos_Uninorte2024Ñ';
 GRANT SELECT, INSERT, UPDATE, DELETE ON railway.* TO 'alumnos'@'%';
-FLUSH PRIVILEGES;*/;
+FLUSH PRIVILEGES;
 
 
 
