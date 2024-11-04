@@ -1,19 +1,16 @@
 <?php
 ob_start();
 session_start(); // Iniciar la sesión
-require '../config/conexion.php';
-require 'phpqrcode/qrlib.php';
-include_once '../config/qrconfig.php';
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php'); // Cambia 'login.html' por el nombre de tu página de inicio de sesión
     exit();
 }
-
-// Header
+require '../config/conexion.php';
+require 'phpqrcode/qrlib.php';
+include_once '../config/qrconfig.php';
+//Header
 require 'header.php';
-
-
 
 
 if (!isset($_SESSION['qr_id'])) {

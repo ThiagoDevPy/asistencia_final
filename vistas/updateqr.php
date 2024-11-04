@@ -2,8 +2,9 @@
 session_start();
 require '../config/conexion.php';
 require 'phpqrcode/qrlib.php';
+include_once '../config/qrconfig.php';
 if (isset($_GET['id'])) {
-   
+    global $base_url; 
     $id = $_SESSION['qr_id'];
 
     if (empty($id)) {
@@ -29,7 +30,7 @@ if (isset($_GET['id'])) {
         $stmt->bind_param("s", $new_id);
         $stmt->execute();
 
-        $new_qr_code_data = "https://asis.fra1.zeabur.app/controlador/guardardatos.php?id=" . $new_id;  // tiene que ser igual a la url del la pagina
+        $new_qr_code_data = $base_url."zeabur.app/controlador/guardardatos.php?id=" . $new_id;  // tiene que ser igual a la url del la pagina
         QRcode::png($new_qr_code_data, 'qrcodes/new_qr.png', QR_ECLEVEL_L, 10);
 
         echo json_encode(['new_qr' => "qrcodes/new_qr.png", 'new_id' => $new_id]);
