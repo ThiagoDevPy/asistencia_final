@@ -1,5 +1,4 @@
 <?php
-
 ob_start();
 
 session_start(); // Iniciar la sesión
@@ -17,13 +16,7 @@ $alumno = new Alumno();
 $rspta = $alumno->cantidad_alumnos();
 $reg = $rspta->fetch_object();
 $reg->id;
-
-
-
 ?>
-
-
-
 <!--CONTENIDO -->
 <div class="content-wrapper">
 

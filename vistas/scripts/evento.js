@@ -1,5 +1,4 @@
 
-
 //funtion que se ejecuta en el inicio
 function init() {
     mostrarform(false);

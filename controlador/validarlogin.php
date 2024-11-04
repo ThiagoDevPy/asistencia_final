@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start(); // Iniciar la sesión
 
 require "../config/conexion.php"; // Asegúrate de que este archivo esté correctamente configurado
